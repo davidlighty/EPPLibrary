@@ -1,0 +1,13 @@
+This directory contains the jar for the afilias-rtk-addon,
+plus additional jar from third-party package optional
+or required for the use of the addon.
+
+
+
+IDNSDK.jar
+
+    This is the jar file of Verisign's IDN SDK 1.0.2.  The binary
+    is licensed under the BSD opensource licence by Verisign.  A
+    copy of the licence can be found in the directory just above
+    this one.
+
