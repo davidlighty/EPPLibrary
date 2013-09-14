@@ -1,5 +1,5 @@
-EPP Library
-===========
+EPP Library (Java)
+==================
 
 Updated version of EPP-RTK from http://sourceforge.net/projects/epp-rtk/
 
