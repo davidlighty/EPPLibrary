@@ -13,3 +13,5 @@ If you are running into a lost namespace issue, then the calling method needs to
 it's current Document.
 
 If I have time I'll attempt to update more.
+
+This is currently an Eclipse project.
