@@ -115,7 +115,10 @@ public class LaunchCreate extends EPPXMLBase implements epp_Extension {
 			e.setAttribute("type", type);
 		}
 
-		ExtUtils.addXMLElement(doc, e, "launch:phase", phase);
+		Element ePhase = ExtUtils.addXMLElement(doc, e, "launch:phase", phase);
+		ePhase.setAttribute("name", "phase");
+		// ReAdd Element to replace it.
+		e.appendChild(ePhase);
 
 		if (launchNotice != null) {
 			e.appendChild(launchNotice.getElement(doc));
@@ -150,37 +153,7 @@ public class LaunchCreate extends EPPXMLBase implements epp_Extension {
 
 		Document doc = new DocumentImpl();
 
-		Element e = doc.createElement("launch:create");
-		e.setAttribute("xmlns:launch", "urn:ietf:params:xml:ns:launch-1.0");
-		e.setAttribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
-		e.setAttribute("xsi:schemaLocation",
-				"urn:ietf:params:xml:ns:launch-1.0 launch-1.0.xsd");
-
-		if (type != null && !type.isEmpty()) {
-			e.setAttribute("type", type);
-		}
-
-		ExtUtils.addXMLElement(doc, e, "launch:phase", phase);
-
-		if (launchNotice != null) {
-			e.appendChild(launchNotice.getElement(doc));
-		}
-
-		if (signedMark != null && !signedMark.isEmpty()) {
-			Element signedMarkElement = doc
-					.createElement("smd:encodedSignedMark");
-			signedMarkElement.setAttribute("xmlns:xsi",
-					"http://www.w3.org/2001/XMLSchema-instance");
-			signedMarkElement.setAttribute("xmlns:smd",
-					"urn:ietf:params:xml:ns:signedMark-1.0");
-			signedMarkElement.setAttribute("xsi:schemaLocation",
-					"urn:ietf:params:xml:ns:signedMark-1.0 signedMark-1.0");
-
-			signedMarkElement.appendChild(doc.createTextNode(signedMark));
-
-			e.appendChild(signedMarkElement);
-		}
-
+		Element e = toXMLElement(doc);
 		doc.appendChild(e);
 
 		String xml;
