@@ -116,9 +116,10 @@ public class LaunchCreate extends EPPXMLBase implements epp_Extension {
 		}
 
 		Element ePhase = ExtUtils.addXMLElement(doc, e, "launch:phase", phase);
-		ePhase.setAttribute("name", "phase");
+		// This was asked to be removed.  The above already appends the Element.
+		//ePhase.setAttribute("name", "phase");
 		// ReAdd Element to replace it.
-		e.appendChild(ePhase);
+		//e.appendChild(ePhase);
 
 		if (launchNotice != null) {
 			e.appendChild(launchNotice.getElement(doc));
